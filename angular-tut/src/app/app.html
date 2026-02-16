@@ -1,0 +1,99 @@
+<!-- <h1>{{admin}}</h1>
+<h1>{{title()}}</h1>
+<app-signup></app-signup>
+<app-login></app-login>
+
+<button (click)="handleClickEvent()">Click Me</button>
+<br>
+<button (click)="handleSum(40,50)">Add</button> 
+<br>
+<input type="text" (input)="handleInput($event)">
+<input type="text" (change)="handleEventName($event.type)">
+<input type="text" (blur)="handleEventName($event.type)">
+<input type="text" (focus)="handleEventName($event.type)">
+<br>
+<div class="red-div" (mouseenter)="handleEventName($event.type)"><h2>Red</h2></div>
+<div class="gray-div" (mouseleave)="handleEventName($event.type)"><h2>Blue</h2></div>
+<br>
+<button (click)="handleMultipleEvent($event)">Click</button>
+<input (change)="handleMultipleEvent($event)">
+<input (input)="handleMultipleEvent($event)">
+<input (mouseenter)="handleMultipleEvent($event)">
+<br>
+<br> -->
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Property Binding vs  Interpolation -->
+
+<!-- // interpolation always evalutes the value inside it if needed and then convert the value into string -->
+<!-- <button disabled="{{btnDisable}}">Click Me</button>   -->
+
+<!--  // Property Binding -->
+<!-- <button [disabled]="btnDisable">Click Me</button>
+<button (click)="toggleDisable()">Toggle</button> -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Signals -->
+
+<!-- It sends the signal to backend also about any change in the property of the variable -->
+<!-- <h2>{{data}}</h2>
+<button (click)="updateData()">Update Data</button>
+<br>
+<h2>{{count()}}</h2>
+<button (click)="updateCount()">Update Count</button> -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Computed Signals -->
+
+<!-- These are those signals which get invoked when any other signal happens. Dependent for their execution on other signal -->
+
+<!-- <h1>Computed Signals</h1>
+<h1>Area : {{area()}}</h1>
+<h3>Width : {{width()}}</h3>
+<h3>Height : {{height()}}</h3>
+<button (click)="updateWidth()">Update Width</button>
+<button (click)="resetWidth()">Reset Width</button>
+<br>
+<button (click)="updateHeight()">Update Height</button>
+<button (click)="resetHeight()">Reset Height</button> -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Effects -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- Data Type with signals -->
+
+<!-- <div style="display: flex; justify-content: center; width: 100%;">
+  <div class="counter">
+    <div>
+      <h1 class="counter-h1">Counter</h1>
+    </div>
+    <div class="counter-count">
+      <h2>{{ count() }}</h2>
+    </div>
+    <div>
+      <button class="counter-btn" (click)="decrement()">-</button>
+      <button class="counter-reset" (click)="reset()">Reset</button>
+      <button class="counter-btn" (click)="increment()">+</button>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- 
+<h2>Value: {{input()}}</h2>
+<input type="text" [value]="input()" (input)="handleInput($event)">
+<button (click)="handleDefault()" >Set Default Value</button> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
+

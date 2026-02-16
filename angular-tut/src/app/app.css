@@ -1,0 +1,43 @@
+.red-div {
+  width:80px;
+  height: 80px;
+  background-color: red;
+}
+
+.gray-div {
+  width: 80px;
+  height: 80px;
+  background-color: grey;
+}
+
+.counter {
+  text-align: center;
+  border:2px solid purple;  
+  border-radius:10px;
+  width:40%
+}
+
+
+.counter-count {
+  display: flex;      
+  justify-content: center; 
+  align-items: center;
+}
+
+.counter-btn {
+  background-color: rgb(75, 71, 197);
+  color: white;
+  padding: 10px 15px;   
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.counter-reset {
+  padding: 10px 15px;    
+  margin: 5px;
+  cursor: pointer;
+}
+
+
