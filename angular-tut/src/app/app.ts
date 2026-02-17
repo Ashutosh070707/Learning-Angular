@@ -2,10 +2,23 @@ import { Component, computed, effect, Signal, signal, WritableSignal } from '@an
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Signup } from './signup/signup';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Footer } from './footer/footer';
+import { Child } from './child/child';
+import { DisplayCount } from './display-count/display-count';
+import { ControlCount } from './control-count/control-count';
+import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
+
+interface Task {
+  id: string ;
+  title: string;
+  completed: boolean;
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Signup],
+  imports: [RouterOutlet, FormsModule, CommonModule, Login, Signup, Footer, Child, DisplayCount, ControlCount, TrimTextPipe],
   templateUrl: './app.html',
   // If your html code is very small, you create create inline html template also, you dont have to create a seperate file.
   // template: `<h1>{{name}}</h1>`,
@@ -147,9 +160,151 @@ export class App {
   }
   */
 
+
+  /*
+  isLogin = signal(true);
+  handleLogin(status:boolean){
+    this.isLogin.set(!this.isLogin())
+  }
+
+  users = signal(['Anil', 'Peter', 'Sam', 'Jake']);
+  userDetails = signal([
+    {id: 1, fullName:"Anil Sharma", age: 36},
+    {id: 2, fullName:'Peter Parker', age: 29},
+    {id:3, fullName:'Sam Altman', age: 35},
+    {id:4, fullName:'Jake Paul', age: 32}
+  ])
+
+  status = signal('notStarted');
+  statusUpdate = new Map<number, string>([
+    [0, 'notStarted'],
+    [1, 'loading'],
+    [2, 'success'],
+    [3, 'Error']
+  ]);
+
+  handleStatusChange(){
+    const randomNumber = Math.floor(Math.random()*4);
+    const newStatus = this.statusUpdate.get(randomNumber) ?? 'notStarted';
+    this.status.set(newStatus);
+  }
+  */
+
+  /*
+  // Two way data binding
+  name = signal("");
+  age = 20;
+
+  user = signal({
+    name: 'Ashutosh',
+    age: 21,
+    gender: 'Male'
+  })
+
+  updateUserData(key:string, val:string){
+    this.user.update((item) =>({...item, [key]:val}))
+  }
+
+  userName = signal('ashafaf')
+
+  get uName(){
+    return this.userName();
+  }
+  set uName(val:string){
+    this.userName.set(val);
+  }
+
+  userDetail = signal({
+    name: 'Ashutosh',
+    age: 21,
+    gender: 'Male'
+  })
+
+  get udName(){
+    return this.userDetail().name;
+  }
+  set udName(val:string){
+    this.userDetail.update(item => ({...item, name:val}))
+  }
+  get udAge(){
+    return this.userDetail().age;
+  }
+  set udAge(val:number){
+    this.userDetail.update(item => ({...item, age:val}))
+  }
+  */
+
+  /*
+  // To Do List
+  newTask = signal('');
+  tasks = signal<Task[]>([]);
+
+  addTask(){
+    if(this.newTask().length>0){
+      console.log(this.newTask());
+      this.tasks.update((tasks)=> [...tasks, {id:crypto.randomUUID(), title: this.newTask(), completed: false}]);
+      this.newTask.set('');
+    }
+  }
+
+  deleteTask(id:string){
+    this.tasks.update((oldTasks)=> oldTasks.filter(old => old.id != id));
+  }
+
+  toggleCompleted(id:string){
+    this.tasks.update((oldTasks)=> oldTasks.map((item) => {
+      if(item.id==id){
+        item.completed = !item.completed;
+      }
+      return item;
+    }));
+  }
+  */
+
+  /*
+  // Directives
+  isLogin = signal(true);
+  users = signal(['Anil', 'Peter', 'Sam', 'Jake']);
+  pColor = "red";
+  */
+
+
+  /*
+  // <!-- Pass Data from parent to child -->
+  userName = signal('ashafaf')
+  users = signal(['ashutosh', 'Sam', 'Tom', 'Anurag'])
+
+  // <!-- Pass Data from child to parent -->
+
+  selectedUserName = signal('')
+
+  selectedUser(name:string){
+    this.selectedUserName.set(name);
+  }
+  */
+
+  // <!-- Global state with signals -->
+
+  /*
+  // <!-- Pipes in Angular -->
+  userName="my name is ashutosh"
+  title = signal('code step by step')
+
+  name = signal('')
+  amount = signal(100);
+  date = new Date();
+
+  user = signal({id:1, name:'Ashu', age:21, gender:'male'})
+  */
+
+  /*
+  // <!-- Make your own pipe in angular -->
+
+  title = signal('code step by step')
+  name = signal('Hello everyone, I am a new Intern in Ciena')
+  */
+
+  // <!-- Routing in angular -->
   
-
-
-
 }
  

@@ -93,7 +93,227 @@
 <button (click)="handleDefault()" >Set Default Value</button> -->
 
 
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Control flow statements -->
+
+<!-- <h1>Control flow statement</h1> -->
+
+<!-- <div>
+  @if(isLogin()){
+    <span>Welcome user</span>
+    <br>
+    <button (click)="handleLogin(true)">Logout</button>
+  }
+  @else if (isLogin()) {
+    <hr>
+  }
+  @else {
+    <span>Please Login</span>
+    <br>
+    <button (click)="handleLogin(false)">Login</button>
+  }
+</div> -->
+
+<!-- <div>
+  <ul>
+    @for(user of users(); track user){
+      <li>{{user}}</li>
+    }
+  </ul>
+
+  <hr>
+
+  <ul>
+    @for(user of userDetails(); track user.id){
+      <li [style.backgroundColor] = "$even?'#ccc':'#fff'">
+        <span>
+          {{$index+2}} {{user.fullName}} : {{user.age}}
+          @if($first) {<span> -> <b style="color:red">Admin</b></span>}
+          @if($last) {<span> -> <b style="color:green">Manager</b></span>}
+        </span>
+      </li>
+      @if($count == $index+1) {
+        <br>
+        <span>
+          <b>Total Users : {{$count}}</b>
+        </span>
+      }
+    }
+  </ul>
+</div> -->
+
+<!-- @switch(status()){
+  @case('notStarted'){
+    <span style="color:gray">No Update Yet</span>
+  }
+  @case('loading'){
+    <span style="color:blueviolet">loading in Progress</span>
+  }
+  @case('success'){
+    <span style="color:green">Success</span>
+  }
+  @default{
+    <span style="color:red">Error</span>
+  }
+}
+<br>
+<button (click)="handleStatusChange()">Change Status</button> -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Two way data binding -->
+
+<!-- Using signals -->
+ <!-- <h1>Name : '{{name()}}'</h1>
+ <input type="text" [value]="name()" (input)="name.set($event.target.value)">
+ <hr> -->
+
+ <!-- Using ngModel -->
+<!-- ** NOTE : You cannot use signals with ngModel, you can only use properties. if you wnt to use signals with ngModel, you have to create getters and setters for the signal -->
+
+<!-- Both ways are same. second oneis expanded version of ngModel -->
+<!-- <h1>Age : {{age}}</h1>
+<input type="text" [(ngModel)]="age"> 
+<input type="text" [ngModel]="age" (ngModelChange)="age = $event">
+<hr> -->
+
+<!-- <h1>{{user().name}}</h1>
+<input type="text" [value]="user().name" (input)="updateUserData('name', $event.target.value)">
+<hr>
+<h1>{{user().age}}</h1>
+<input type="number" [value]="user().age" (input)="updateUserData('age', $event.target.valueAsNumber)">
+<hr>
+<h1>{{user().gender}}</h1>
+<input type="text" [value]="user().gender" (input)="updateUserData('gender', $event.target.value)"> -->
+
+
+<!-- Using getter and setter with ngModal for signals -->
+<!-- <h1>{{uName}}</h1>
+<input type="text" [(ngModel)]="uName">
+<hr>
+
+<h1>Name : {{udName}}</h1>
+<input type="text" [(ngModel)]="udName">
+<hr>
+<h1>Age: {{udAge}}</h1>
+<input type="number" [(ngModel)]="udAge"> -->
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- To Do List -->
+
+<!-- <h1 style="display:flex; justify-content: center;">To Do List</h1>
+<div style="display:flex">
+  <input style="width: 80%; font-size: medium;" type="text" [value]="newTask()" placeholder="enter task" (input)="newTask.set($event.target.value);">
+  <button style="width:20%; font-size: medium;" [disabled]="newTask().length<=0"  (click)="addTask()">Add Task</button>
+</div>
+<hr>
+
+<div>
+  @for(task of tasks(); track task.id){
+    <div style="display:flex">
+      <span style="width: 5%; font-size: large;">{{$index+1}}.</span>
+      <input type="checkbox" style="width: 5%; height: 5%"  (change)="toggleCompleted(task.id)">
+      <span [style.textDecoration]="task.completed ? 'line-through' : 'none'" style="display: flex; justify-content: center; width: 70%; font-size: large; ">{{task.title}}</span>
+      <button style="width: 20%; font-size: large;" (click)="deleteTask(task.id)">Delete</button>
+    </div>
+    <hr>
+  }
+  @empty {
+    <span  style="display: flex; justify-content: center; font-size: large; ">No Task</span>
+  }
+</div> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Directives -->
+
+<!-- <h1 *ngIf="isLogin()">Welcome, User</h1>
+
+<ul *ngFor="let user of users()">
+  <li>{{user}}</li>
+</ul>
+
+<p [ngStyle]="{color:pColor}">Hello World</p> -->
+
+
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
 
 
+<!-- Creating inline component -->
 
+<!-- <app-footer></app-footer> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- Pass Data from parent to child -->
+
+<!-- <app-child [userName]="userName()"></app-child>
+<app-child [userName]="'anil'"></app-child>
+<app-child [userName]="'peter'"></app-child>
+<app-child [userName]="'Satyam'"></app-child> -->
+
+<!-- @for(user of users(); track user){
+  <app-child [userName]="user"></app-child>
+} -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- Pass Data from child to parent -->
+
+<!-- <app-child [userName]="userName()" (selectedUser)="selectedUser($event)"></app-child> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- Global state with signals -->
+
+<!-- <app-display-count></app-display-count>
+<app-control-count></app-control-count> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Pipes in Angular -->
+
+<!-- <h1>{{userName | titlecase}}</h1>
+<h1>{{title() | uppercase}}</h1>
+<hr>
+<h1>{{name() | titlecase}}</h1>
+<input type="text" (input)="name.set($event.target.value)">
+<hr>
+<h1>{{amount() | currency:'USD'}}</h1>
+<h1>{{date | date}}</h1>
+<h1>{{date | date:'mm'}}</h1>
+<h1>{{date | date:'dd'}}</h1>
+<h1>{{date | date:'yy'}}</h1>
+<h1>{{user() | json}}</h1> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
+<!-- Make your own pipe in angular -->
+
+<!-- <h1>{{title() | trimText:5 | titlecase}}</h1>
+<h1>{{name() | trimText | uppercase}}</h1> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+ 
+
+<!-- Routing in angular -->

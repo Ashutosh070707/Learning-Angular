@@ -16,3 +16,6 @@
 
 #### To generate pipe
 - ng generate pipe folderName/pipeName
+
+#### To create inline component
+- ng g c component_name --inline-template --inline-style
