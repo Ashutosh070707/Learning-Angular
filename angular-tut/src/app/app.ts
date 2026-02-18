@@ -1,5 +1,5 @@
 import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Signup } from './signup/signup';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { Child } from './child/child';
 import { DisplayCount } from './display-count/display-count';
 import { ControlCount } from './control-count/control-count';
 import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
+import { Header } from './components/header/header';
 
 interface Task {
   id: string ;
@@ -18,7 +19,7 @@ interface Task {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, Login, Signup, Footer, Child, DisplayCount, ControlCount, TrimTextPipe],
+  imports: [RouterOutlet, FormsModule, CommonModule, Login, Signup, Footer, Child, DisplayCount, ControlCount, TrimTextPipe, RouterOutlet, RouterLink, Header],
   templateUrl: './app.html',
   // If your html code is very small, you create create inline html template also, you dont have to create a seperate file.
   // template: `<h1>{{name}}</h1>`,

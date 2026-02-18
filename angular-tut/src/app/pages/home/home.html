@@ -1,1 +1,13 @@
-<p>home works!</p>
+<h1>Home Page</h1>
+<button (click)="goToProfilePage()">Go to profile page</button>
+<br>
+
+<a routerLink="/profile" [queryParams]="{id:1, name:'Ashu', age:21}">Ashu profile</a>
+<br>
+<a routerLink="/profile" [queryParams]="{id:2, name:'Demeon', age:56}">Demeon Profile</a>
+<hr>
+<a routerLink="/about/anil/29">Go to About page</a>
+<br>
+<a [routerLink]="['/about', userData().name, userData().age]">Go to About page</a>
+<br>
+<button (click)="router.navigate(['/about'])">Go to About</button>

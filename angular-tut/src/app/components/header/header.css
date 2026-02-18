@@ -1,0 +1,10 @@
+a {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: rgb(235, 104, 235);
+  text-decoration: none;
+}
+
+.active {
+  color: darkgoldenrod;
+}
