@@ -327,17 +327,74 @@
 <hr>
 <router-outlet></router-outlet> -->
 
-<app-header></app-header>
+<!-- <app-header></app-header>
 <hr>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
 
 <!-- 404 page and redirection -->
 <!-- Query Params -->
 <!-- Route Params -->
 <!-- Dynamic Routing -->
+<!-- Nested/Child Routing -->
+<!-- Lazy loading with Routing -->
+
+
+<!-- <nav>
+  <a routerLink="">Home</a>
+  <a routerLink="/user">User</a>
+</nav>
+<hr>
+<router-outlet></router-outlet> -->
+
+<!-- Load Component Dynamically -->
+
+<!-- Kuch samajh nhi aaya , phirse padho -->
+<!-- <app-user-details></app-user-details> --> 
 
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
 
 
 
+<!-- Forms in Angular -->
 
+<!-- Reactive Forms -->
+
+<!-- <input type="text" placeholder="enter email" [formControl]="email">
+<br>
+<input type="password" placeholder="enter password" [formControl]="password">
+<br>
+<button (click)="login()" >Login</button>
+<button (click)="reset()" >Reset</button> -->
+
+
+<!-- Form Grouping in Reactive Forms -->
+<!-- Reactive Forms Validation -->
+
+<form [formGroup]="loginForm" (ngSubmit)="hnadleProfile()" methoid="post">
+  <input type="text" placeholder="name" formControlName="name">
+  @if(name?.hasError('required') && name?.touched){
+    <span>Name field is required</span>
+  }
+  <br><br>
+  <input type="text" placeholder="email" formControlName="email">
+  @if(email?.hasError('required') && email?.touched){
+    <span>Email field is required</span>
+  }
+  @if(email?.errors?.['email'] && email?.touched){
+    <span>Email is invalid</span>
+  }
+  <br><br>
+  <input type="text" placeholder="password" formControlName="password">
+  @if(password?.hasError('required') && password?.touched){
+    <span>Password field is required</span>
+  }
+  @if(password?.errors?.['minlength'] && password?.touched){
+    <span>Password should have more than 4 characters</span>
+  }
+  <br><br>
+  <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+  <button (click)="reset()">Reset</button>
+</form>
+
+
+<!-- Signal Forms -->

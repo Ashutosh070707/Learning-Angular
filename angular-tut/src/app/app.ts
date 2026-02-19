@@ -2,7 +2,7 @@ import { Component, computed, effect, Signal, signal, WritableSignal } from '@an
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Signup } from './signup/signup';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Footer } from './footer/footer';
 import { Child } from './child/child';
@@ -10,6 +10,7 @@ import { DisplayCount } from './display-count/display-count';
 import { ControlCount } from './control-count/control-count';
 import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
 import { Header } from './components/header/header';
+import { UserDetails } from './user-details/user-details';
 
 interface Task {
   id: string ;
@@ -19,7 +20,7 @@ interface Task {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, Login, Signup, Footer, Child, DisplayCount, ControlCount, TrimTextPipe, RouterOutlet, RouterLink, Header],
+  imports: [RouterOutlet, FormsModule, CommonModule, Login, Signup, Footer, Child, DisplayCount, ControlCount, TrimTextPipe, RouterOutlet, RouterLink, Header, UserDetails, ReactiveFormsModule],
   templateUrl: './app.html',
   // If your html code is very small, you create create inline html template also, you dont have to create a seperate file.
   // template: `<h1>{{name}}</h1>`,
@@ -307,5 +308,58 @@ export class App {
 
   // <!-- Routing in angular -->
   
+
+  // <!-- Forms in Angular -->
+
+  /*
+  // <!-- Reactive Forms -->
+
+  email = new FormControl("abc")
+  password = new FormControl("")
+
+  login(){
+    console.log(this.email.value);
+    console.log(this.password.value)
+  }
+  reset(){
+    this.email.setValue("")
+    this.password.setValue('')
+  }
+  */
+
+  // <!-- Form Grouping in Reactive Forms -->
+  // <!-- Reactive Forms Validation -->
+
+  loginForm = new FormGroup({
+    name: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+  })
+
+  get name(){
+    return this.loginForm.get('name')
+  }
+
+  get email(){
+    return this.loginForm.get('email')
+  }
+
+  get password(){
+    return this.loginForm.get('password')
+  }
+
+
+
+  hnadleProfile(){
+    console.log(this.loginForm.value);
+  }
+
+  reset(){
+    this.loginForm.setValue({
+      name:'',
+      email:'',
+      password:''
+    })
+  }
 }
  

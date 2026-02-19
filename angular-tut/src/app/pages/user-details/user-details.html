@@ -1,0 +1,8 @@
+<h1>User Details</h1>
+<hr>
+<ul>
+  <!-- For loop takes array to iterate. Here userData is an object. So either directly access the properties of the object or you can convert the object into iterable form like below. One disadvantage of using keyValue is that it does not preserve the order of properties as in original object -->
+  @for(detail of userData() | keyvalue; track $index){
+    <li>{{detail.key}} : {{detail.value}}</li>
+  }
+</ul>
